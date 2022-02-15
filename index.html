@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <title>Slider</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .slider {
+        width: 100vw;
+        height: 100vh;
+        background-color: #000;
+      }
+      .slider-inner {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        display: none;
+        object-fit: cover;
+        animation: slideout 4s linear;
+        animation-delay: 1s;
+      }
+
+      .slider-inner::after {
+        backdrop-filter: blur(5px); /* Supported in Chrome 76 */
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+      }
+
+      .slider-inner-center {
+        width: 60%;
+        height: 80%;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+      }
+
+      .slide-one {
+        background-image: url("./img/img1.jpg");
+        background-size: cover;
+        background-attachment: fixed;
+      }
+
+      .slide-tow {
+        background-image: url("./img/img2.jpg");
+        background-size: cover;
+        background-attachment: fixed;
+      }
+      .slide-three {
+        background-image: url("./img/img3.jpg");
+        background-size: cover;
+        background-attachment: fixed;
+      }
+
+      .slider-inner--img {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        animation: imageSlideout 4s linear;
+        animation-delay: 1s;
+      }
+      .slider-inner--img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        border-radius: 6px;
+      }
+
+      @keyframes slideout {
+        100% {
+          width: 0%;
+        }
+      }
+
+      @keyframes imageSlideout {
+        100% {
+          width: 0%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slider" id="slider">
+      <div class="slider-inner slide-one">
+        <div class="slider-inner-center">
+          <div class="slider-inner--img">
+            <img src="./img/img1.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-inner slide-tow">
+        <div class="slider-inner-center">
+          <div class="slider-inner--img">
+            <img src="./img/img2.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-inner slide-three">
+        <div class="slider-inner-center">
+          <div class="slider-inner--img">
+            <img src="./img/img3.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
