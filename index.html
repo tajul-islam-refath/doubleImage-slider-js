@@ -25,12 +25,12 @@
       }
       .slider-inner {
         width: 100%;
-        height: 100vh;
+        height: 100%;
         position: relative;
         display: none;
         object-fit: cover;
-        animation: slideout 4s linear;
-        animation-delay: 1s;
+        /* animation: slideout 4s; */
+        /* animation-delay: 1s; */
       }
 
       .slider-inner::after {
@@ -72,9 +72,10 @@
       .slider-inner--img {
         width: 100%;
         height: 100%;
+        display: none;
         position: fixed;
-        animation: imageSlideout 4s linear;
-        animation-delay: 1s;
+        /* animation: imageSlideout 4s linear; */
+        /* animation-delay: 1s; */
       }
       .slider-inner--img img {
         width: 100%;
@@ -90,9 +91,30 @@
         }
       }
 
+      @keyframes slidein {
+        0% {
+          width: 0%;
+          left: 0%;
+        }
+        100% {
+          width: 100%;
+          right: 0%;
+        }
+      }
+
       @keyframes imageSlideout {
         100% {
           width: 0%;
+        }
+      }
+
+      @keyframes imageSlidin {
+        0% {
+          width: 0%;
+          left: 0%;
+        }
+        100% {
+          width: 100%;
         }
       }
     </style>
